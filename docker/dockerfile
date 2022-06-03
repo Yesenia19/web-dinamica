@@ -4,3 +4,8 @@ RUN apt upgrade -y
 RUN apt install python3 -y 
 RUN apt install python3-pip -y
 RUN pip3 install web.py
+
+ENV requirements /home/requirements.txt
+COPY requirements.txt ${requirements}
+RUN pip3 install -r /home/requirements.txt
+WORKDIR /home/
